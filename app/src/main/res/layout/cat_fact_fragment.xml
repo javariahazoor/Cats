@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/blue"
+    tools:context=".ui.catFact.CatFactFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dullBlack"
+        android:minHeight="?attr/actionBarSize"
+        app:title="Cats Facts"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white" />
+
+    <View
+        android:id="@+id/view_container"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ImageView
+        android:id="@+id/cat_image"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/view_container"
+        app:layout_constraintStart_toStartOf="@+id/view_container"
+        app:layout_constraintTop_toTopOf="@+id/view_container" />
+
+
+    <TextView
+        android:id="@+id/fact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="15dp"
+        android:text="...."
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/view_container"
+        app:layout_constraintStart_toStartOf="@+id/view_container"
+        app:layout_constraintTop_toBottomOf="@+id/cat_image" />
+
+
+
+    <ImageButton
+        android:id="@+id/refresh"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/blue"
+        android:src="@drawable/ic_refresh"
+        app:layout_constraintEnd_toStartOf="@+id/download_btn"
+        app:layout_constraintStart_toStartOf="@+id/cat_image"
+        app:layout_constraintTop_toBottomOf="@+id/fact" />
+    <ImageButton
+        android:id="@+id/download_btn"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_download"
+        android:layout_marginTop="30dp"
+        android:background="@color/blue"
+        app:layout_constraintEnd_toEndOf="@+id/cat_image"
+        app:layout_constraintStart_toEndOf="@+id/refresh"
+        app:layout_constraintTop_toBottomOf="@+id/fact" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/fact"
+        app:layout_constraintEnd_toEndOf="@+id/cat_image"
+        app:layout_constraintStart_toStartOf="@+id/cat_image"
+        app:layout_constraintTop_toTopOf="@+id/cat_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
