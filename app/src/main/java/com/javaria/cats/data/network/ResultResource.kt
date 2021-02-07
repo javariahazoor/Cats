@@ -1,12 +1,10 @@
 package com.javaria.cats.data.network
 
-// this class will be generic and it will handle all type of api responses that is why we have type T
-//We can use this sealed class to wrap our Api responses
-
 import okhttp3.ResponseBody
 
 /**
- * This class will handle all type of retrofit response and errors
+ * This class will be generic and handle all type of retrofit response and errors
+ * and we had used sealed class to wrap our Api responses
  */
 sealed class ResultResource<out T> {
 

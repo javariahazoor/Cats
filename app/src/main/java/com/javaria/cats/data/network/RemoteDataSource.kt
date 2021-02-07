@@ -25,30 +25,24 @@ class RemoteDataSource {
      * This function is a generic function and will create a retrofit client
      */
     fun <Api> buildApi(
-        api: Class<Api>,
-        authApi: String? = null
+        api: Class<Api>
     ): Api {
 
         val httpClient = OkHttpClient.Builder()
-
-        if (authApi != null) {
-            httpClient.addInterceptor { chain ->
-                chain.proceed(
-                    chain.request().newBuilder().also {
-                        //here token is passes
-                        //or agr bagair parameters k agr
-                        it.addHeader("x-api-key", "api_key=$authApi")
-                    }.build()
-                )
-            }
-            //adding interceptor for debugging
-            httpClient.addNetworkInterceptor(StethoInterceptor())
+        httpClient.addInterceptor { chain ->
+            chain.proceed(
+                chain.request().newBuilder().also {
+                    //adding heading api key
+                    it.addHeader("x-api-key", "api_key=4810da08-bc44-4a77-864d-a68b6a249035")
+                }.build()
+            )
         }
+        //adding interceptor for debugging
+        httpClient.addNetworkInterceptor(StethoInterceptor())
+
 
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            //adding interceptor for posting token to each call
-
             .client(
                 httpClient.also { client ->
                     if (BuildConfig.DEBUG) {

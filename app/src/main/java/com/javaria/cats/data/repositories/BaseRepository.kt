@@ -8,6 +8,9 @@ import retrofit2.HttpException
 
 //this will be base repository for all repositories
 abstract class BaseRepository {
+    /**
+     * Generic function for api call
+     */
     suspend fun <T> safeApiCall(
         apiCall: suspend () -> T
     ): ResultResource<T> {

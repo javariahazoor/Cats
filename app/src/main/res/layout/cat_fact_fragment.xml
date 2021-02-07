@@ -14,11 +14,11 @@
         android:layout_height="wrap_content"
         android:background="@color/dullBlack"
         android:minHeight="?attr/actionBarSize"
-        app:title="Cats Facts"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:title="Cats Facts"
         app:titleTextColor="@android:color/white" />
 
     <View
@@ -41,6 +41,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="15dp"
+        android:contentDescription="@string/cat_image"
         app:layout_constraintEnd_toEndOf="@+id/view_container"
         app:layout_constraintStart_toStartOf="@+id/view_container"
         app:layout_constraintTop_toTopOf="@+id/view_container" />
@@ -51,8 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
         android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
         android:text="...."
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/view_container"
@@ -60,25 +61,28 @@
         app:layout_constraintTop_toBottomOf="@+id/cat_image" />
 
 
-
     <ImageButton
         android:id="@+id/refresh"
         android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@color/blue"
         android:src="@drawable/ic_refresh"
+        android:contentDescription="@string/refresh"
         app:layout_constraintEnd_toStartOf="@+id/download_btn"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@+id/cat_image"
         app:layout_constraintTop_toBottomOf="@+id/fact" />
+
     <ImageButton
         android:id="@+id/download_btn"
         android:layout_width="60dp"
         android:layout_height="50dp"
-        android:src="@drawable/ic_download"
         android:layout_marginTop="30dp"
         android:background="@color/blue"
+        android:contentDescription="@string/download"
+        android:src="@drawable/ic_download"
         app:layout_constraintEnd_toEndOf="@+id/cat_image"
         app:layout_constraintStart_toEndOf="@+id/refresh"
         app:layout_constraintTop_toBottomOf="@+id/fact" />

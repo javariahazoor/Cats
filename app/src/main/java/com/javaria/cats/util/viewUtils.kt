@@ -5,8 +5,8 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Show Snack bar
- * @param meesage: error message
- * @param retry: it is an optional parameter
+ * @param message: error message
+ * @param action: it is an optional parameter for retry
  * */
 fun View.snackbar(message: String, action: (() -> Unit)? = null) {
     val snackbar = Snackbar.make(this, message, Snackbar.LENGTH_LONG)

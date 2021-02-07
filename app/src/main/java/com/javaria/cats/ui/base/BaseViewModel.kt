@@ -5,7 +5,4 @@ import com.javaria.cats.data.repositories.BaseRepository
 
 abstract class BaseViewModel(private val repository: BaseRepository) : ViewModel() {
 
-
-
-
 }

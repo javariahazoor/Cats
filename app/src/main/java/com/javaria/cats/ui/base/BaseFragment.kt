@@ -6,18 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.javaria.cats.data.network.RemoteDataSource
-import com.javaria.cats.data.repositories.BaseRepository
 
-abstract class BaseFragment<VM : BaseViewModel, B : ViewBinding, R : BaseRepository> : Fragment() {
+abstract class BaseFragment<B : ViewBinding> : Fragment() {
 
 
     protected lateinit var binding: B
-    protected lateinit var viewModel: VM
-    protected val remoteDataSource = RemoteDataSource()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,14 +19,9 @@ abstract class BaseFragment<VM : BaseViewModel, B : ViewBinding, R : BaseReposit
         savedInstanceState: Bundle?
     ): View? {
         binding = getFragmentBinding(inflater, container)
-        val factory = ViewModelFactory(repository = getFragmentRepository())
-        viewModel = ViewModelProvider(this, factory).get(getViewModel())
-
         return binding.root
     }
 
 
-    abstract fun getViewModel(): Class<VM>
     abstract fun getFragmentBinding(inflater: LayoutInflater, container: ViewGroup?): B
-    abstract fun getFragmentRepository(): R
 }

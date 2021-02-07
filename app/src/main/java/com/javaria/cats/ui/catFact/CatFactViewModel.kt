@@ -1,20 +1,7 @@
 package com.javaria.cats.ui.catFact
 
 
-import android.Manifest
-import android.annotation.TargetApi
-import android.app.DownloadManager
-import android.content.Context
-import android.content.pm.PackageManager
-import android.database.Cursor
-import android.net.Uri
-import android.os.Build
-import android.os.Environment
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -24,9 +11,10 @@ import com.javaria.cats.data.network.ResultResource
 import com.javaria.cats.data.repositories.CatRepository
 import com.javaria.cats.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
-import java.io.File
+import androidx.hilt.lifecycle.ViewModelInject
 
-class CatFactViewModel(private val repository: CatRepository) : BaseViewModel(repository)  {
+
+class CatFactViewModel @ViewModelInject constructor(private val repository: CatRepository) : BaseViewModel (repository)  {
     private val _catImageResponse = MutableLiveData<ResultResource<List<CatImageResponse>>>()
     val catImageResponse: LiveData<ResultResource<List<CatImageResponse>>>
         get() = _catImageResponse
