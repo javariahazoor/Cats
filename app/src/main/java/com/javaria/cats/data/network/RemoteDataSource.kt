@@ -15,7 +15,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class RemoteDataSource {
     companion object {
         private const val BASE_URL = "https://api.thecatapi.com/v1/"
-        private const val CAT_FACTS_BASE_URL = "https://api.thecatapi.com/v1/"
         private val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
